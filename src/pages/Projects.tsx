@@ -1,58 +1,38 @@
-import { Link } from "react-router-dom";
-
-const sampleProjects = [
-  {
-    title: "Canary Wharf Residential Tower",
-    slug: "canary-wharf-residential",
-    sector: "Housing Development",
-  },
-  {
-    title: "Shoreditch Office Refurbishment",
-    slug: "shoreditch-office-refurb",
-    sector: "Commercial",
-  },
-  {
-    title: "King's Cross Infrastructure Works",
-    slug: "kings-cross-infrastructure",
-    sector: "Infrastructure",
-  },
-];
+import { ProjectCard } from "@/components/ProjectCard";
+import { projects } from "@/data/projects";
 
 export default function Projects() {
   return (
-    <div className="min-h-screen bg-white text-black">
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-red-600">
+    <div className="min-h-screen bg-neutral-100 text-black">
+      <section className="mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24">
+        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-red-600">
           Projects
         </p>
 
-        <h1 className="mb-6 text-4xl font-bold md:text-5xl">
+        <h1 className="max-w-4xl text-5xl font-bold leading-tight md:text-6xl">
           Our project portfolio
         </h1>
 
-        <p className="mb-12 max-w-3xl text-lg text-gray-700">
-          This page will later showcase Smaci’s selected work, sectors, scope,
-          and outcomes. For now, it acts as a clean route scaffold.
+        <p className="mt-8 max-w-3xl text-xl leading-9 text-gray-600">
+          This page introduces Smaci’s selected work structure. It will later be
+          expanded with fuller project scope, delivery information, and branded
+          visual content.
         </p>
+      </section>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {sampleProjects.map((project) => (
-            <article
-              key={project.slug}
-              className="rounded-xl border border-gray-200 p-6 shadow-sm"
-            >
-              <p className="mb-2 text-sm font-medium text-red-600">
-                {project.sector}
-              </p>
-              <h2 className="mb-4 text-xl font-semibold">{project.title}</h2>
-
-              <Link
-                to={`/projects/${project.slug}`}
-                className="text-sm font-semibold text-black underline underline-offset-4"
-              >
-                View project
-              </Link>
-            </article>
+      <section className="mx-auto max-w-7xl px-6 pb-20 md:px-10">
+        <div className="grid gap-6 lg:grid-cols-3">
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              slug={project.slug}
+              name={project.name}
+              sector={project.sector}
+              location={project.location}
+              year={project.year}
+              shortDescription={project.shortDescription}
+              status={project.status}
+            />
           ))}
         </div>
       </section>
