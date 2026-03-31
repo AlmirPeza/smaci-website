@@ -2,6 +2,15 @@ import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
+const navLinks = [
+  { label: "Home", path: "/" },
+  { label: "Projects", path: "/projects" },
+  { label: "About", path: "/about" },
+  { label: "Services", path: "/services" },
+  { label: "Sectors", path: "/sectors" },
+  { label: "Insights", path: "/insights" },
+];
+
 export const Navigation = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
@@ -9,15 +18,20 @@ export const Navigation = () => {
 
   const closeMobileMenu = () => setMobileOpen(false);
 
+  const isActive = (path: string) => {
+    return location.pathname === path;
+  };
+
   const handleContactClick = () => {
     closeMobileMenu();
 
     if (location.pathname === "/") {
       const section = document.getElementById("contact-section");
+
       if (section) {
         section.scrollIntoView({ behavior: "smooth" });
+        return;
       }
-      return;
     }
 
     navigate("/contact");
@@ -26,32 +40,27 @@ export const Navigation = () => {
   return (
     <header className="sticky top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
-        <Link to="/" className="flex items-center">
+        <Link to="/" className="flex items-center" onClick={closeMobileMenu}>
           <span className="text-sm font-semibold uppercase tracking-[0.25em] text-red-600">
             Smaci Ltd
           </span>
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
-          <Link
-            to="/"
-            className="text-sm font-medium text-black transition hover:text-red-600"
-          >
-            Home
-          </Link>
-          <Link
-            to="/projects"
-            className="text-sm font-medium text-black transition hover:text-red-600"
-          >
-            Projects
-          </Link>
-          <Link
-            to="/about"
-            className="text-sm font-medium text-black transition hover:text-red-600"
-          >
-            About
-          </Link>
+          {navLinks.map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              className={`text-sm font-medium transition ${
+                isActive(link.path) ? "text-red-600" : "text-black hover:text-red-600"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+
           <button
+            type="button"
             onClick={handleContactClick}
             className="rounded-none border border-black px-5 py-2 text-sm font-semibold text-black transition hover:bg-black hover:text-white"
           >
@@ -62,7 +71,7 @@ export const Navigation = () => {
         <button
           type="button"
           onClick={() => setMobileOpen((prev) => !prev)}
-          className="inline-flex items-center justify-center lg:hidden"
+          className="inline-flex items-center justify-center text-black lg:hidden"
           aria-label="Toggle menu"
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -72,28 +81,21 @@ export const Navigation = () => {
       {mobileOpen && (
         <div className="border-t border-black/10 bg-white lg:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col px-6 py-4">
-            <Link
-              to="/"
-              onClick={closeMobileMenu}
-              className="py-3 text-sm font-medium text-black"
-            >
-              Home
-            </Link>
-            <Link
-              to="/projects"
-              onClick={closeMobileMenu}
-              className="py-3 text-sm font-medium text-black"
-            >
-              Projects
-            </Link>
-            <Link
-              to="/about"
-              onClick={closeMobileMenu}
-              className="py-3 text-sm font-medium text-black"
-            >
-              About
-            </Link>
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={closeMobileMenu}
+                className={`py-3 text-sm font-medium ${
+                  isActive(link.path) ? "text-red-600" : "text-black"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+
             <button
+              type="button"
               onClick={handleContactClick}
               className="mt-3 w-fit border border-black px-5 py-2 text-sm font-semibold text-black"
             >
