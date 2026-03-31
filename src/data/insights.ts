@@ -1,49 +1,45 @@
-export interface Insight {
-  id: string;
+export type Insight = {
+  id: number;
   slug: string;
+  category: string;
   title: string;
-  category: "News" | "Insight" | "Case Study";
   date: string;
-  summary: string;
+  excerpt: string;
   content: string;
-}
+};
 
 export const insights: Insight[] = [
   {
-    id: "1",
+    id: 1,
     slug: "delivery-thinking-on-live-sites",
-    title: "Delivery Thinking on Live Sites",
     category: "Insight",
+    title: "Delivery Thinking on Live Sites",
     date: "March 2026",
-    summary:
+    excerpt:
       "A placeholder article showing how future Smaci insights will be presented inside the website structure.",
     content:
-      "This is a temporary insight article used to scaffold the route, card, and detail layout for the future insights section.",
+      "This placeholder insight shows how editorial-style content can support the credibility of a contractor website. Later, this section can be expanded with real delivery insights, practical thinking, and company updates that reinforce the business profile.",
   },
   {
-    id: "2",
-    slug: "why-coordination-matters-early",
-    title: "Why Early Coordination Matters",
+    id: 2,
+    slug: "why-early-coordination-matters",
     category: "Case Study",
+    title: "Why Early Coordination Matters",
     date: "March 2026",
-    summary:
+    excerpt:
       "A structured example showing how Smaci can later present thinking around planning, sequencing, and delivery.",
     content:
-      "This content is intentionally simple for now. Later it will be replaced with polished branded writing and project-led examples.",
+      "Early coordination reduces delays, improves sequencing, and helps site teams manage dependencies more effectively. This placeholder content is included so the insights detail route has meaningful data to render from day one.",
   },
   {
-    id: "3",
+    id: 3,
     slug: "company-update-placeholder",
-    title: "Company Update Placeholder",
     category: "News",
+    title: "Company Update Placeholder",
     date: "March 2026",
-    summary:
+    excerpt:
       "Temporary news-style entry included so the insights page has realistic variety from the start.",
     content:
-      "This placeholder entry exists to help build and test the final structure before real updates are added.",
+      "This entry acts as a basic news item within the Smaci website structure. It helps demonstrate how announcements, milestone updates, or project progress notes could be published later inside the finished build.",
   },
 ];
-
-export const getInsightBySlug = (slug: string) => {
-  return insights.find((insight) => insight.slug === slug);
-};

@@ -1,65 +1,48 @@
-export interface Project {
-  id: string;
+export type ProjectStatus = "Ongoing" | "Completed";
+
+export type Project = {
+  id: number;
   slug: string;
-  name: string;
   sector: string;
+  title: string;
   location: string;
   year: string;
-  status: "Ongoing" | "Completed";
-  shortDescription: string;
-  longDescription: string;
-  featured: boolean;
-}
+  status: ProjectStatus;
+  description: string;
+};
 
 export const projects: Project[] = [
   {
-    id: "1",
-    slug: "canary-wharf-residential",
-    name: "Canary Wharf Residential Tower",
+    id: 1,
+    slug: "canary-wharf-residential-tower",
     sector: "Housing Development",
+    title: "Canary Wharf Residential Tower",
     location: "Canary Wharf, London",
     year: "2024",
     status: "Ongoing",
-    shortDescription:
+    description:
       "Residential scheme scaffold used to present Smaci’s capability in structural and groundworks delivery.",
-    longDescription:
-      "This placeholder project entry represents how future live projects will be presented across the website, including sector, project overview, delivery scope, and outcomes.",
-    featured: true,
   },
   {
-    id: "2",
+    id: 2,
     slug: "shoreditch-office-refurbishment",
-    name: "Shoreditch Office Refurbishment",
     sector: "Commercial",
+    title: "Shoreditch Office Refurbishment",
     location: "Shoreditch, London",
     year: "2023",
     status: "Completed",
-    shortDescription:
+    description:
       "Commercial refurbishment case used to structure project cards, detail pages, and sector-based filtering.",
-    longDescription:
-      "This sample project helps establish the portfolio layout and route structure before final client-approved content is integrated.",
-    featured: true,
   },
   {
-    id: "3",
-    slug: "kings-cross-infrastructure",
-    name: "King's Cross Infrastructure Works",
+    id: 3,
+    slug: "kings-cross-infrastructure-works",
     sector: "Infrastructure",
+    title: "King's Cross Infrastructure Works",
     location: "King's Cross, London",
     year: "2024",
     status: "Ongoing",
-    shortDescription:
+    description:
       "Infrastructure example included to give early breadth to the portfolio and route system.",
-    longDescription:
-      "This entry stands in for future infrastructure and civil engineering projects that will later include fuller delivery information and outcomes.",
-    featured: true,
   },
 ];
-
-export const getFeaturedProjects = () => {
-  return projects.filter((project) => project.featured);
-};
-
-export const getProjectBySlug = (slug: string) => {
-  return projects.find((project) => project.slug === slug);
-};

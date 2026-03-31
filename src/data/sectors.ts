@@ -1,78 +1,62 @@
-export interface Sector {
-  id: string;
+export type Sector = {
+  id: number;
   slug: string;
   title: string;
   description: string;
   expertise: string[];
-  image: string;
-}
+};
 
 export const sectors: Sector[] = [
   {
-    id: "residential",
-    slug: "residential",
+    id: 1,
+    slug: "housing-development",
     title: "Housing Development",
     description:
-      "We deliver high-quality housing developments across London, from single plots to multi-unit schemes, with a focus on build quality, safety and programme.",
+      "Residential-focused delivery across structural and groundwork packages for private and mixed-use developments.",
     expertise: [
-      "High-rise residential towers in Zones 1-3",
-      "Mixed-tenure affordable housing schemes",
-      "Luxury apartment developments and penthouses",
-      "Student accommodation and build-to-rent",
-      "Heritage building conversions to residential",
+      "Residential blocks",
+      "Basement structures",
+      "Reinforced concrete frames",
+      "Groundworks sequencing",
     ],
-    image:
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop",
   },
   {
-    id: "commercial",
+    id: 2,
     slug: "commercial",
     title: "Commercial",
     description:
-      "We deliver commercial spaces for a wide range of businesses, including:",
+      "Support for office, mixed-use, and business-led construction environments where coordination and programme matter.",
     expertise: [
-      "Office refurbishments and fit-outs",
-      "Retail units and shopfronts",
-      "Restaurants and hospitality spaces",
-      "Industrial and warehouse units",
+      "Refurbishment support",
+      "Frame and slab works",
+      "Site logistics awareness",
+      "Programme-led delivery",
     ],
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop",
   },
   {
-    id: "public-sector",
+    id: 3,
     slug: "public-sector",
     title: "Public Sector",
     description:
-      "We're trusted delivery partners for public sector clients across education, health, and civic projects. We understand the unique requirements of public procurement and the importance of social value and community engagement.",
+      "Construction support suited to schools, civic works, and public-use buildings where consistency and reliability are essential.",
     expertise: [
-      "Schools, academies, and further education",
-      "Healthcare facilities and medical centres",
-      "Civic and community buildings",
-      "Emergency services infrastructure",
-      "Social value and local employment initiatives",
+      "Compliance-led delivery",
+      "Structured site coordination",
+      "Stakeholder-sensitive execution",
+      "Quality-focused handover",
     ],
-    image:
-      "https://images.unsplash.com/photo-1562774053-701939374585?w=800&h=600&fit=crop",
   },
   {
-    id: "infrastructure",
+    id: 4,
     slug: "infrastructure",
-    title: "Infrastructure & Civil Engineering",
+    title: "Infrastructure",
     description:
-      "We deliver essential infrastructure that enables development and supports London's growth. Our civils and infrastructure expertise includes highways, utilities, remediation, and public realm works.",
+      "Groundworks and structural contribution for transport-adjacent and civil-led environments requiring disciplined execution.",
     expertise: [
-      "Highways and transport infrastructure",
-      "Utilities diversions and installations",
-      "Site remediation and enabling works",
-      "Public realm and landscaping",
-      "Temporary works and complex logistics",
+      "Civil support works",
+      "Drainage and concrete packages",
+      "Access and sequencing awareness",
+      "Urban infrastructure coordination",
     ],
-    image:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=600&fit=crop",
   },
 ];
-
-export const getSectorBySlug = (slug: string) => {
-  return sectors.find((sector) => sector.slug === slug);
-};
