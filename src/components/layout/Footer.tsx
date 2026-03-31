@@ -1,34 +1,30 @@
 import { Link } from "react-router-dom";
+import smaciLogo from "@/assets/smaci-logo.png";
 
 export const Footer = () => {
-  const year = new Date().getFullYear();
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-black/10 bg-white">
-      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-10 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-        <div>
-          <p className="mb-2 text-sm font-semibold uppercase tracking-[0.25em] text-red-600">
-            Smaci Ltd
-          </p>
-          <p className="max-w-md text-sm leading-7 text-gray-600">
-            Structural and groundworks contractor based in London, focused on
-            quality, delivery, and reliability.
-          </p>
-        </div>
-
-        <div className="flex flex-col gap-3 text-sm text-gray-600 lg:items-end">
-          <div className="flex gap-5">
-            <Link to="/privacy" className="transition hover:text-black">
-              Privacy
+    <footer className="bg-gray-50 border-t border-gray-200">
+      <div className="container mx-auto px-4 py-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-4">
+            <Link to="/" aria-label="Go to homepage">
+              <img src={smaciLogo} alt="Smaci Ltd logo" className="h-10 w-auto" />
             </Link>
-            <Link to="/cookies" className="transition hover:text-black">
+            <p className="text-sm text-muted-foreground">
+              © {currentYear} Smaci Ltd. All rights reserved.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-6 text-sm">
+            <Link to="/privacy" className="text-muted-foreground hover:text-accent transition-colors">
+              Privacy Policy
+            </Link>
+            <Link to="/cookies" className="text-muted-foreground hover:text-accent transition-colors">
               Cookies
             </Link>
-            <Link to="/contact" className="transition hover:text-black">
-              Contact
-            </Link>
           </div>
-          <p>© {year} Smaci Ltd. All rights reserved.</p>
         </div>
       </div>
     </footer>
