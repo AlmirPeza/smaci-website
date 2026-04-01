@@ -1,27 +1,9 @@
 import { Link, useParams } from "react-router-dom";
-import * as insightsData from "@/data/insights";
-
-type InsightItem = {
-  slug: string;
-  title: string;
-  date: string;
-  summary: string;
-  category?: string;
-  content?: string;
-};
+import { getInsightBySlug } from "@/data/insights";
 
 export default function InsightDetail() {
   const { slug } = useParams();
-
-  const insight =
-    typeof (insightsData as { getInsightBySlug?: (value: string) => InsightItem | undefined })
-      .getInsightBySlug === "function"
-      ? (insightsData as { getInsightBySlug: (value: string) => InsightItem | undefined }).getInsightBySlug(
-          slug ?? "",
-        )
-      : ((insightsData as { insights?: InsightItem[] }).insights ?? []).find(
-          (item: InsightItem) => item.slug === slug,
-        );
+  const insight = getInsightBySlug(slug ?? "");
 
   if (!insight) {
     return (
@@ -32,8 +14,8 @@ export default function InsightDetail() {
           </p>
           <h1 className="text-4xl font-bold md:text-5xl">Insight not found</h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-600">
-            The requested article could not be loaded. Go back to the insights
-            page and choose another entry.
+            The requested insight could not be loaded. Return to the insights
+            page and open another article.
           </p>
           <Link
             to="/insights"
@@ -46,16 +28,14 @@ export default function InsightDetail() {
     );
   }
 
-  const sections = insight.content
-    ? insight.content.split("\n\n").filter(Boolean)
-    : [insight.summary];
+  const sections = insight.content.split("\n\n");
 
   return (
     <div className="min-h-screen bg-[#f6f6f6] text-black">
       <section className="border-b border-black/10">
         <div className="mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-28">
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-red-600">
-            {insight.category ?? "Insight"}
+            {insight.category}
           </p>
 
           <h1 className="max-w-4xl text-5xl font-bold leading-tight md:text-6xl">
@@ -73,7 +53,7 @@ export default function InsightDetail() {
       <section className="border-b border-black/10 bg-white">
         <div className="mx-auto max-w-4xl px-6 py-16 md:px-10">
           <article className="space-y-6">
-            {sections.map((section: string, index: number) => {
+            {sections.map((section, index) => {
               if (section.startsWith("## ")) {
                 return (
                   <h2 key={index} className="pt-4 text-3xl font-bold">
