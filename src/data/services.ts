@@ -1,66 +1,56 @@
 export type Service = {
-  id: number;
+  id: string;
   slug: string;
   title: string;
   description: string;
+  fullDescription: string;
   activities: string[];
-  sectors: string[];
 };
 
 export const services: Service[] = [
   {
-    id: 1,
+    id: "substructure",
     slug: "substructure-groundworks",
     title: "Substructure & Groundworks",
     description:
-      "Expert delivery of all works below ground level, from foundations and basements to drainage and retaining walls.",
+      "Expert delivery of below-ground works, foundations, drainage, and enabling packages across London.",
+    fullDescription:
+      "Smaci Ltd provides practical support across substructure and groundworks packages, helping projects establish a strong delivery foundation from the earliest construction stages. This structured service data is designed to support future branded service pages and more detailed company messaging.",
     activities: [
-      "Bulk excavation and reduced level dig",
-      "Foundations and ground beams",
-      "Basement enabling works",
-      "Drainage and attenuation systems",
-    ],
-    sectors: [
-      "Housing Development",
-      "Commercial",
-      "Infrastructure",
-      "Public Sector",
+      "Groundworks and below-ground package coordination",
+      "Foundations and early-stage structural preparation",
+      "Drainage and enabling works support",
+      "Practical delivery structure for future service-led case studies",
     ],
   },
   {
-    id: 2,
+    id: "superstructure",
     slug: "superstructure-frame-works",
     title: "Superstructure & Frame Works",
     description:
-      "Concrete and steel frame construction, cores, and structural works above ground delivered with quality and precision.",
+      "Support across structural frame delivery, build sequencing, and above-ground package coordination.",
+    fullDescription:
+      "This service block presents Smaci Ltd as a contractor able to support key superstructure and frame-related work with a clear, delivery-led identity. It strengthens the commercial structure of the site and creates room for future expansion into project-backed proof.",
     activities: [
-      "RC frame packages",
-      "Concrete slabs and columns",
-      "Core construction",
-      "Structural coordination support",
-    ],
-    sectors: [
-      "Housing Development",
-      "Commercial",
-      "Public Sector",
+      "Structural frame package presentation",
+      "Build sequence and delivery-focused messaging",
+      "Above-ground works support structure",
+      "Future-ready scaffold for visual and technical company content",
     ],
   },
   {
-    id: 3,
+    id: "deconstruction",
     slug: "deconstruction-concrete-works",
     title: "Deconstruction & Concrete Works",
     description:
-      "Enabling works, soft strip, and small-scale deconstruction preparing sites for new structures.",
+      "Controlled enabling, deconstruction, and concrete-related works positioned within a practical contractor framework.",
+    fullDescription:
+      "This service area helps broaden the commercial offer shown on the website. It gives the project more realism and reflects how a contractor site often presents enabling capability alongside structural delivery and package coordination.",
     activities: [
-      "Soft strip and demolition prep",
-      "Breaking out concrete elements",
-      "Temporary works coordination",
-      "Site clearance and enabling support",
-    ],
-    sectors: [
-      "Commercial",
-      "Infrastructure",
-      "Public Sector",
+      "Enabling and deconstruction-led work positioning",
+      "Concrete package and preparation support narrative",
+      "Commercial breadth inside the services section",
+      "Scaffold for future real project-backed examples",
     ],
   },
 ];

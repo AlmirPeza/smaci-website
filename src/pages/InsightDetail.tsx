@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+import { Hero } from "@/components/Hero";
 import { getInsightBySlug } from "@/data/insights";
 
 export default function InsightDetail() {
@@ -32,26 +33,16 @@ export default function InsightDetail() {
 
   return (
     <div className="min-h-screen bg-[#f6f6f6] text-black">
-      <section className="border-b border-black/10">
-        <div className="mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-28">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-red-600">
-            {insight.category}
-          </p>
-
-          <h1 className="max-w-4xl text-5xl font-bold leading-tight md:text-6xl">
-            {insight.title}
-          </h1>
-
-          <p className="mt-6 text-lg text-gray-500">{insight.date}</p>
-
-          <p className="mt-8 max-w-3xl text-xl leading-9 text-gray-600">
-            {insight.summary}
-          </p>
-        </div>
-      </section>
+      <Hero
+        eyebrow={insight.category}
+        title={insight.title}
+        subtitle={insight.summary}
+      />
 
       <section className="border-b border-black/10 bg-white">
         <div className="mx-auto max-w-4xl px-6 py-16 md:px-10">
+          <p className="mb-8 text-lg text-gray-500">{insight.date}</p>
+
           <article className="space-y-6">
             {sections.map((section, index) => {
               if (section.startsWith("## ")) {

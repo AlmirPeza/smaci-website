@@ -1,5 +1,5 @@
 export type Sector = {
-  id: number;
+  id: string;
   slug: string;
   title: string;
   description: string;
@@ -8,55 +8,55 @@ export type Sector = {
 
 export const sectors: Sector[] = [
   {
-    id: 1,
+    id: "housing-development",
     slug: "housing-development",
     title: "Housing Development",
     description:
-      "Residential-focused delivery across structural and groundwork packages for private and mixed-use developments.",
+      "We position Smaci Ltd to support residential and mixed-housing schemes with practical structural and groundworks capability.",
     expertise: [
-      "Residential blocks",
-      "Basement structures",
-      "Reinforced concrete frames",
-      "Groundworks sequencing",
+      "Residential-led project presentation",
+      "Groundworks and structural package alignment",
+      "Portfolio-ready housing project positioning",
+      "Future expansion into real case studies and visuals",
     ],
   },
   {
-    id: 2,
+    id: "commercial",
     slug: "commercial",
     title: "Commercial",
     description:
-      "Support for office, mixed-use, and business-led construction environments where coordination and programme matter.",
+      "Commercial sector coverage gives the website stronger depth and a more complete contractor identity.",
     expertise: [
-      "Refurbishment support",
-      "Frame and slab works",
-      "Site logistics awareness",
-      "Programme-led delivery",
+      "Office and mixed-use positioning",
+      "Commercial delivery-focused service narrative",
+      "Clearer portfolio breadth for business credibility",
+      "Future-ready structure for real refurbishment and build examples",
     ],
   },
   {
-    id: 3,
+    id: "public-sector",
     slug: "public-sector",
     title: "Public Sector",
     description:
-      "Construction support suited to schools, civic works, and public-use buildings where consistency and reliability are essential.",
+      "Public sector coverage helps the site feel more realistic and commercially balanced from the start.",
     expertise: [
-      "Compliance-led delivery",
-      "Structured site coordination",
-      "Stakeholder-sensitive execution",
-      "Quality-focused handover",
+      "Education and civic project positioning",
+      "Structured contractor presentation for institutional work",
+      "Credibility-building sector coverage",
+      "Expandable framework for future public-facing case studies",
     ],
   },
   {
-    id: 4,
-    slug: "infrastructure",
-    title: "Infrastructure",
+    id: "infrastructure",
+    slug: "infrastructure-civil-engineering",
+    title: "Infrastructure & Civil Engineering",
     description:
-      "Groundworks and structural contribution for transport-adjacent and civil-led environments requiring disciplined execution.",
+      "Infrastructure positioning strengthens the project by showing broader delivery capability and sector readiness.",
     expertise: [
-      "Civil support works",
-      "Drainage and concrete packages",
-      "Access and sequencing awareness",
-      "Urban infrastructure coordination",
+      "Infrastructure and enabling works narrative",
+      "Civil engineering support presentation",
+      "Sector diversification across the website structure",
+      "Future fit for more technical project storytelling",
     ],
   },
 ];
