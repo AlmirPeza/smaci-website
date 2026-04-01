@@ -1,27 +1,23 @@
 import { Link } from "react-router-dom";
-import { projects } from "@/data/projects";
-import { services } from "@/data/services";
-import { ProjectCard } from "@/components/ProjectCard";
-import { ServiceCard } from "@/components/ServiceCard";
-import { StatCard } from "@/components/StatCard";
+
+import { getFeaturedProjects } from "@/data/projects";
 
 export default function Home() {
-  const featuredProjects = projects.slice(0, 3);
-  const featuredServices = services.slice(0, 3);
+  const featuredProjects = getFeaturedProjects();
 
   return (
-    <div className="min-h-screen bg-[#f6f6f6] text-black">
+    <div className="bg-[#f6f6f6] text-black">
       <section className="border-b border-black/10">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32">
           <p className="mb-6 text-sm font-semibold uppercase tracking-[0.3em] text-red-600">
             Smaci Ltd
           </p>
 
-          <h1 className="max-w-5xl text-6xl font-bold leading-none tracking-tight md:text-8xl">
+          <h1 className="max-w-6xl text-5xl font-bold leading-tight tracking-tight md:text-7xl">
             Structural and groundworks contractor based in London
           </h1>
 
-          <p className="mt-12 max-w-4xl text-2xl leading-10 text-gray-600">
+          <p className="mt-10 max-w-4xl text-xl leading-10 text-gray-600">
             Smaci Ltd delivers practical construction support across structural,
             groundworks, enabling, and project-led packages with a strong focus
             on delivery, quality, and reliability.
@@ -30,14 +26,14 @@ export default function Home() {
           <div className="mt-12 flex flex-wrap gap-4">
             <Link
               to="/projects"
-              className="inline-flex items-center border border-black bg-black px-8 py-4 text-lg font-semibold text-white transition hover:bg-red-600 hover:border-red-600"
+              className="border border-black bg-black px-8 py-4 text-base font-semibold text-white transition hover:bg-white hover:text-black"
             >
               View Projects
             </Link>
 
             <Link
               to="/about"
-              className="inline-flex items-center border border-black px-8 py-4 text-lg font-semibold text-black transition hover:bg-black hover:text-white"
+              className="border border-black px-8 py-4 text-base font-semibold text-black transition hover:bg-black hover:text-white"
             >
               About Us
             </Link>
@@ -45,43 +41,35 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-b border-black/10">
+      <section className="border-b border-black/10 bg-white">
         <div className="mx-auto grid max-w-7xl gap-6 px-6 py-16 md:grid-cols-3 lg:px-8">
-          <StatCard value="3" label="Core service areas" />
-          <StatCard value="4" label="Target sectors" />
-          <StatCard value="London" label="Primary operating area" />
-        </div>
-      </section>
+          <div className="rounded-2xl border border-black/10 p-8">
+            <p className="text-5xl font-bold">3</p>
+            <p className="mt-4 text-xl text-gray-600">Core service areas</p>
+          </div>
 
-      <section className="border-b border-black/10">
-        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-red-600">
-            Services
-          </p>
+          <div className="rounded-2xl border border-black/10 p-8">
+            <p className="text-5xl font-bold">4</p>
+            <p className="mt-4 text-xl text-gray-600">Target sectors</p>
+          </div>
 
-          <h2 className="mb-16 text-5xl font-bold md:text-6xl">
-            What we do
-          </h2>
-
-          <div className="grid gap-6 lg:grid-cols-3">
-            {featuredServices.map((service) => (
-              <ServiceCard key={service.id} service={service} />
-            ))}
+          <div className="rounded-2xl border border-black/10 p-8">
+            <p className="text-5xl font-bold">London</p>
+            <p className="mt-4 text-xl text-gray-600">Primary operating area</p>
           </div>
         </div>
       </section>
 
       <section className="border-b border-black/10">
-        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-          <div className="mb-16 flex items-end justify-between gap-6">
-            <div>
-              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-red-600">
-                Projects
-              </p>
-              <h2 className="text-5xl font-bold md:text-6xl">
-                Featured project work
-              </h2>
-            </div>
+        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-red-600">
+            Projects
+          </p>
+
+          <div className="mb-12 flex items-end justify-between gap-6">
+            <h2 className="text-4xl font-bold leading-tight md:text-5xl">
+              Featured project work
+            </h2>
 
             <Link
               to="/projects"
@@ -93,36 +81,71 @@ export default function Home() {
 
           <div className="grid gap-6 lg:grid-cols-3">
             {featuredProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+              <article
+                key={project.id}
+                className="rounded-2xl border border-black/10 bg-white p-8"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <p className="text-sm font-medium text-red-600">
+                    {project.sector}
+                  </p>
+
+                  <span
+                    className={`rounded-full px-4 py-1 text-sm font-semibold ${
+                      project.status === "Completed"
+                        ? "bg-black text-white"
+                        : "bg-red-600 text-white"
+                    }`}
+                  >
+                    {project.status}
+                  </span>
+                </div>
+
+                <h3 className="mt-4 text-2xl font-bold leading-tight">
+                  {project.name}
+                </h3>
+
+                <p className="mt-6 text-lg text-gray-500">{project.location}</p>
+                <p className="mt-2 text-lg text-gray-500">{project.year}</p>
+
+                <p className="mt-6 text-lg leading-8 text-gray-600">
+                  {project.shortDescription}
+                </p>
+
+                <Link
+                  to={`/projects/${project.slug}`}
+                  className="mt-8 inline-block text-base font-semibold text-black underline underline-offset-4 transition hover:text-red-600"
+                >
+                  View project
+                </Link>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="contact-section">
-        <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+      <section id="contact-section" className="bg-white">
+        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-red-600">
             Contact
           </p>
 
-          <h2 className="max-w-4xl text-5xl font-bold md:text-6xl">
+          <h2 className="max-w-4xl text-4xl font-bold leading-tight md:text-5xl">
             Ready to discuss your next project?
           </h2>
 
-          <p className="mt-8 max-w-4xl text-2xl leading-10 text-gray-600">
+          <p className="mt-8 max-w-4xl text-xl leading-10 text-gray-600">
             We are building the full branded experience step by step. For now,
             you can continue through the project and about sections, or move to
             the contact page scaffold.
           </p>
 
-          <div className="mt-12">
-            <Link
-              to="/contact"
-              className="inline-flex items-center border border-black bg-black px-8 py-4 text-lg font-semibold text-white transition hover:bg-red-600 hover:border-red-600"
-            >
-              Contact Us
-            </Link>
-          </div>
+          <Link
+            to="/contact"
+            className="mt-10 inline-block border border-black bg-black px-8 py-4 text-base font-semibold text-white transition hover:bg-white hover:text-black"
+          >
+            Contact Us
+          </Link>
         </div>
       </section>
     </div>
