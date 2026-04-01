@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+import { Button } from "@/components/ui/button";
+
 export default function NotFound() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#f6f6f6] px-6 text-black">
@@ -18,12 +20,9 @@ export default function NotFound() {
         </p>
 
         <div className="mt-10">
-          <Link
-            to="/"
-            className="inline-flex border border-black bg-black px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-black"
-          >
-            Back to home
-          </Link>
+          <Button asChild size="lg">
+            <Link to="/">Back to home</Link>
+          </Button>
         </div>
       </div>
     </div>
