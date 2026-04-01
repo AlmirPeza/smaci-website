@@ -5,45 +5,32 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-black/10 bg-gray-50">
-      <div className="mx-auto max-w-7xl px-6 py-10 lg:px-8">
-        <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+    <footer className="border-t border-gray-200 bg-gray-50">
+      <div className="container mx-auto px-4 py-6">
+        <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           <div className="flex items-center gap-4">
             <Link to="/" aria-label="Go to homepage">
-              <img
-                src={smaciLogo}
-                alt="Smaci Ltd logo"
-                className="h-10 w-auto object-contain"
-              />
+              <img src={smaciLogo} alt="Smaci Ltd logo" className="h-10 w-auto" />
             </Link>
-
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-600">
-                Smaci Ltd
-              </p>
-              <p className="mt-1 text-sm text-gray-600">
-                Structural and groundworks contractor based in London.
-              </p>
-            </div>
+            <p className="text-sm text-muted-foreground">
+              © {currentYear} Smaci Ltd. All rights reserved.
+            </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-6 text-sm">
-            <Link to="/privacy" className="text-gray-600 transition hover:text-red-600">
+          <div className="flex items-center gap-6 text-sm">
+            <Link
+              to="/privacy"
+              className="text-muted-foreground transition-colors hover:text-accent"
+            >
               Privacy Policy
             </Link>
-            <Link to="/cookies" className="text-gray-600 transition hover:text-red-600">
+            <Link
+              to="/cookies"
+              className="text-muted-foreground transition-colors hover:text-accent"
+            >
               Cookies
             </Link>
-            <Link to="/contact" className="text-gray-600 transition hover:text-red-600">
-              Contact
-            </Link>
           </div>
-        </div>
-
-        <div className="mt-6 border-t border-black/10 pt-6">
-          <p className="text-sm text-gray-500">
-            © {currentYear} Smaci Ltd. All rights reserved.
-          </p>
         </div>
       </div>
     </footer>
