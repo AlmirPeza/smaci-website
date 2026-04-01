@@ -1,4 +1,4 @@
-import heroImage from "@/assets/hero.png";
+export type ProjectStatus = "Ongoing" | "Completed";
 
 export type Project = {
   id: number;
@@ -7,42 +7,31 @@ export type Project = {
   sector: string;
   location: string;
   year: string;
-  status: "Ongoing" | "Completed";
-  value: string;
+  status: ProjectStatus;
   shortDescription: string;
-  longDescription: string;
-  heroImage: string;
-  services: string[];
-  keyOutcomes: string[];
-  featured: boolean;
+  description: string;
+  scope: string[];
 };
 
-export const projects: Project[] = [
+const projects: Project[] = [
   {
     id: 1,
-    slug: "canary-wharf-residential",
+    slug: "canary-wharf-residential-tower",
     name: "Canary Wharf Residential Tower",
     sector: "Housing Development",
     location: "Canary Wharf, London",
     year: "2024",
     status: "Ongoing",
-    value: "£18m",
     shortDescription:
       "Residential scheme scaffold used to present Smaci’s capability in structural and groundworks delivery.",
-    longDescription:
-      "This project detail is a structured placeholder for a large-scale housing development scheme in London. It gives the website a realistic contractor case-study format and creates a strong base for future client-facing portfolio content.",
-    heroImage,
-    services: [
-      "Substructure & Groundworks",
-      "Concrete Works",
-      "Project Coordination",
+    description:
+      "This placeholder project presents how Smaci Ltd can showcase a major residential package with clean structure, sector alignment, and strong delivery-focused language.",
+    scope: [
+      "Groundworks and enabling package coordination",
+      "Substructure preparation and concrete-related works",
+      "Delivery support across phased residential construction",
+      "Structured presentation of sector capability for future case studies",
     ],
-    keyOutcomes: [
-      "Early-stage project structure prepared for portfolio presentation",
-      "Clear separation between sector, service, and project detail content",
-      "Reusable layout format for future real Smaci project case studies",
-    ],
-    featured: true,
   },
   {
     id: 2,
@@ -52,23 +41,16 @@ export const projects: Project[] = [
     location: "Shoreditch, London",
     year: "2023",
     status: "Completed",
-    value: "£6m",
     shortDescription:
       "Commercial refurbishment case used to structure project cards, detail pages, and sector-based filtering.",
-    longDescription:
-      "This project acts as a commercial-sector example for the Smaci website. It helps demonstrate how office, mixed-use, and city-based work can be presented inside the final website without needing backend complexity at this stage.",
-    heroImage,
-    services: [
-      "Superstructure & Frame Works",
-      "Concrete Works",
-      "Delivery Support",
+    description:
+      "This example project gives the commercial side of the website more depth and shows how Smaci can present office-led or mixed-use refurbishment work in a polished way.",
+    scope: [
+      "Commercial refurbishment positioning",
+      "Structural adaptation and site coordination narrative",
+      "Delivery-focused portfolio storytelling",
+      "Reusable structure for future project expansion",
     ],
-    keyOutcomes: [
-      "Professional commercial project card structure",
-      "Reusable project detail layout for future schemes",
-      "Balanced mix of credibility, readability, and visual hierarchy",
-    ],
-    featured: true,
   },
   {
     id: 3,
@@ -78,30 +60,29 @@ export const projects: Project[] = [
     location: "King's Cross, London",
     year: "2024",
     status: "Ongoing",
-    value: "£11m",
     shortDescription:
       "Infrastructure example included to give early breadth to the portfolio and route system.",
-    longDescription:
-      "This project broadens the website beyond housing and commercial work. It gives the platform an infrastructure and civils angle, which makes the contractor profile feel more complete and more realistic from the start.",
-    heroImage,
-    services: [
-      "Groundworks",
-      "Enabling Works",
-      "Deconstruction & Concrete Works",
+    description:
+      "This infrastructure placeholder strengthens the portfolio by showing that the website is ready to support multiple sectors, larger project narratives, and broader delivery capability.",
+    scope: [
+      "Infrastructure-focused project presentation",
+      "Groundworks and enabling narrative for public-facing portfolio",
+      "Sector diversification inside the website structure",
+      "Scaffold for future branded case study content",
     ],
-    keyOutcomes: [
-      "Stronger sector breadth across the website",
-      "Improved portfolio realism for early demos",
-      "More complete contractor positioning across pages",
-    ],
-    featured: true,
   },
 ];
 
-export function getFeaturedProjects() {
-  return projects.filter((project) => project.featured);
+export function getProjects(): Project[] {
+  return projects;
 }
 
-export function getProjectBySlug(slug: string) {
+export function getFeaturedProjects(): Project[] {
+  return projects.slice(0, 3);
+}
+
+export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((project) => project.slug === slug);
 }
+
+export { projects };
