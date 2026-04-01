@@ -2,26 +2,29 @@ import { Link } from "react-router-dom";
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-white px-6 text-black">
-      <div className="max-w-xl text-center">
-        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-red-600">
+    <div className="flex min-h-screen items-center justify-center bg-[#f6f6f6] px-6 text-black">
+      <div className="max-w-2xl text-center">
+        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-red-600">
           404
         </p>
 
-        <h1 className="mb-6 text-4xl font-bold md:text-5xl">
+        <h1 className="text-5xl font-bold leading-tight md:text-6xl">
           Page not found
         </h1>
 
-        <p className="mb-8 text-lg leading-8 text-gray-700">
-          The page you’re looking for doesn’t exist or has been moved.
+        <p className="mt-8 text-xl leading-9 text-gray-600">
+          The page you requested does not exist or has not been built yet.
+          Return to the homepage and continue through the main site sections.
         </p>
 
-        <Link
-          to="/"
-          className="rounded-md bg-black px-6 py-3 text-sm font-semibold text-white transition hover:bg-gray-800"
-        >
-          Return Home
-        </Link>
+        <div className="mt-10">
+          <Link
+            to="/"
+            className="inline-flex border border-black bg-black px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-black"
+          >
+            Back to home
+          </Link>
+        </div>
       </div>
     </div>
   );

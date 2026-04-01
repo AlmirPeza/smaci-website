@@ -1,28 +1,9 @@
 import { Link } from "react-router-dom";
 
-const values = [
-  {
-    title: "Delivery",
-    description:
-      "We focus on practical site execution, dependable coordination, and keeping workstreams moving.",
-  },
-  {
-    title: "Quality",
-    description:
-      "Every package is presented through a quality-first mindset, from groundwork preparation to structural delivery.",
-  },
-  {
-    title: "Reliability",
-    description:
-      "Smaci Ltd is positioned as a contractor clients can trust for consistency, communication, and project discipline.",
-  },
-];
-
-const capabilities = [
-  "Structural and groundwork support",
-  "Project-led coordination and delivery",
-  "Residential, commercial, and infrastructure focus",
-  "Practical site execution with scalable capability",
+const team = [
+  { name: "Bledar Smaci", role: "Managing Director" },
+  { name: "Project Delivery Team", role: "Operations & Coordination" },
+  { name: "Site Management", role: "Construction Supervision" },
 ];
 
 export default function About() {
@@ -31,104 +12,147 @@ export default function About() {
       <section className="border-b border-black/10">
         <div className="mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-28">
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-red-600">
-            About Smaci Ltd
+            About
           </p>
 
           <h1 className="max-w-5xl text-5xl font-bold leading-tight md:text-6xl">
-            A contractor focused on delivery, quality, and reliability
+            A contractor profile built around clarity, delivery, and credibility
           </h1>
 
-          <div className="mt-8 max-w-3xl space-y-6 text-xl leading-9 text-gray-600">
-            <p>
-              This page positions Smaci Ltd as a serious contractor brand rather
-              than just a temporary placeholder. It gives the project stronger
-              business credibility and makes the structure feel closer to a real
-              company website.
+          <p className="mt-8 max-w-4xl text-xl leading-9 text-gray-600">
+            Smaci Ltd is presented as a London-based structural and groundworks
+            contractor with a practical, delivery-led identity. This page gives
+            the website stronger company depth and supports a more professional
+            client-facing impression.
+          </p>
+        </div>
+      </section>
+
+      <section className="border-b border-black/10 bg-white">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 md:px-10 lg:grid-cols-2">
+          <div>
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-red-600">
+              Who We Are
             </p>
-            <p>
-              Later, this section can be expanded with final client copy, team
-              profiles, operational history, branded imagery, and company
-              milestones.
-            </p>
+            <h2 className="text-4xl font-bold md:text-5xl">
+              Built around practical construction support
+            </h2>
           </div>
 
-          <div className="mt-10">
-            <Link
-              to="/contact"
-              className="inline-flex border border-black bg-black px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-black"
-            >
-              Contact Us
-            </Link>
+          <div className="space-y-6 text-lg leading-9 text-gray-700">
+            <p>
+              Smaci Ltd is positioned as a specialist contractor focused on
+              structural, groundworks, and enabling packages across London.
+            </p>
+            <p>
+              The purpose of this website version is to communicate credibility,
+              sector coverage, and project readiness in a clear and modern way.
+            </p>
+            <p>
+              As the project develops further, this page can be expanded with
+              real company history, leadership detail, project photography, and
+              more refined commercial messaging.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-black/10">
+        <div className="mx-auto max-w-7xl px-6 py-20 md:px-10">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-red-600">
+            Our Approach
+          </p>
+          <h2 className="max-w-4xl text-4xl font-bold md:text-5xl">
+            Structured communication, clean delivery, and a stronger commercial presence
+          </h2>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            <article className="rounded-2xl border border-black/10 bg-white p-8 shadow-sm">
+              <h3 className="mb-4 text-2xl font-bold">Clear Presentation</h3>
+              <p className="text-lg leading-8 text-gray-600">
+                The site is being built to present Smaci in a direct,
+                professional, and commercially understandable way.
+              </p>
+            </article>
+
+            <article className="rounded-2xl border border-black/10 bg-white p-8 shadow-sm">
+              <h3 className="mb-4 text-2xl font-bold">Delivery Focus</h3>
+              <p className="text-lg leading-8 text-gray-600">
+                Every section is being structured to support services, projects,
+                sectors, and future real case studies.
+              </p>
+            </article>
+
+            <article className="rounded-2xl border border-black/10 bg-white p-8 shadow-sm">
+              <h3 className="mb-4 text-2xl font-bold">Future Expansion</h3>
+              <p className="text-lg leading-8 text-gray-600">
+                This is a clean foundation that can later absorb richer content,
+                images, metrics, and client-specific proof points.
+              </p>
+            </article>
           </div>
         </div>
       </section>
 
       <section className="border-b border-black/10 bg-white">
-        <div className="mx-auto grid max-w-7xl gap-6 px-6 py-20 md:grid-cols-3 md:px-10">
-          {values.map((value) => (
-            <article
-              key={value.title}
-              className="rounded-2xl border border-black/10 bg-white p-8 shadow-sm"
-            >
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-red-600">
-                Value
-              </p>
-              <h2 className="mb-4 text-3xl font-bold">{value.title}</h2>
-              <p className="text-lg leading-8 text-gray-600">
-                {value.description}
-              </p>
-            </article>
-          ))}
+        <div className="mx-auto max-w-7xl px-6 py-20 md:px-10">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-red-600">
+            Team
+          </p>
+          <h2 className="text-4xl font-bold md:text-5xl">Smaci Team</h2>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {team.map((member) => (
+              <article
+                key={member.name}
+                className="rounded-2xl border border-black/10 bg-white p-8 shadow-sm"
+              >
+                <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-black text-lg font-bold text-white">
+                  {member.name
+                    .split(" ")
+                    .map((part) => part[0])
+                    .slice(0, 2)
+                    .join("")}
+                </div>
+
+                <h3 className="text-2xl font-bold">{member.name}</h3>
+                <p className="mt-3 text-lg text-gray-600">{member.role}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="border-b border-black/10">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 md:px-10">
-          <div>
+      <section className="bg-[#f6f6f6]">
+        <div className="mx-auto max-w-7xl px-6 py-20 md:px-10">
+          <div className="max-w-4xl">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-red-600">
-              Company profile
+              Next Step
             </p>
             <h2 className="text-4xl font-bold md:text-5xl">
-              Built to present a clearer contractor identity
+              Ready to continue the conversation
             </h2>
-          </div>
 
-          <div className="space-y-6 text-lg leading-8 text-gray-600">
-            <p>
-              The current version presents Smaci Ltd as a London-based
-              contractor with structured delivery capability across key project
-              areas. The tone is intentionally direct, professional, and easy to
-              extend later.
+            <p className="mt-8 text-xl leading-9 text-gray-600">
+              The page now supports the overall brand presentation much better.
+              Later we can refine this further to match the final target version
+              with logo placement, stronger team visuals, and richer company copy.
             </p>
-            <p>
-              This is the right stage to lock in page structure, spacing, route
-              hierarchy, and business messaging before moving into richer visual
-              design and more advanced component reuse.
-            </p>
-          </div>
-        </div>
-      </section>
 
-      <section className="bg-white">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 md:grid-cols-[1.1fr_0.9fr] md:px-10">
-          <div>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-red-600">
-              Capabilities
-            </p>
-            <h2 className="max-w-3xl text-4xl font-bold md:text-5xl">
-              A base structure ready for stronger company storytelling
-            </h2>
-          </div>
-
-          <div className="rounded-2xl border border-black/10 bg-[#f6f6f6] p-8">
-            <h3 className="mb-6 text-2xl font-bold">Current focus areas</h3>
-            <ul className="space-y-4 text-lg text-gray-700">
-              {capabilities.map((item) => (
-                <li key={item} className="border-b border-black/10 pb-4 last:border-b-0 last:pb-0">
-                  {item}
-                </li>
-              ))}
-            </ul>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Link
+                to="/contact"
+                className="inline-flex border border-black bg-black px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-black"
+              >
+                Contact Us
+              </Link>
+              <Link
+                to="/projects"
+                className="inline-flex border border-black px-6 py-3 text-sm font-semibold text-black transition hover:bg-black hover:text-white"
+              >
+                View Projects
+              </Link>
+            </div>
           </div>
         </div>
       </section>
